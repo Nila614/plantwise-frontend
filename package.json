@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/Nila614/plantwise-frontend.git",
+  "homepage": "https://Nila614.github.io/plantwise-frontend",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
