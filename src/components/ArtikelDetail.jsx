@@ -15,12 +15,21 @@ function ArtikelDetail() {
 
   if (!article) return <p>Loading...</p>;
 
-  // Function to parse content into bold headings and paragraphs
+  const sanitizeText = (text) => {
+    return text
+      .replace(/“|”/g, '"')  
+      .replace(/‘|’/g, "'")  
+      .replace(/\?\?\?/g, '') 
+      .replace(/\uFFFD/g, ''); 
+  };
+  
   const renderContent = (content) => {
-    const lines = content.split("\n").map((line, index) => {
+    const cleanContent = sanitizeText(content); 
+  
+    const lines = cleanContent.split("\n").map((line, index) => {
       if (line.trim() === "") return null;
-
-      // Numbered lines (e.g., "1.", "2.") are bold and resized
+  
+      
       if (line.trim().match(/^\d+\./)) {
         return (
           <p key={index} className="text-lg font-bold text-green-800 mt-4">
@@ -28,8 +37,8 @@ function ArtikelDetail() {
           </p>
         );
       }
-
-      // Short lines that aren't numbered are treated as subtitles
+  
+      
       if (!line.match(/^\d+\./) && line.length < 80) {
         return (
           <h2 key={index} className="text-xl font-bold text-green-800 mt-6">
@@ -37,17 +46,18 @@ function ArtikelDetail() {
           </h2>
         );
       }
-
-      // All other lines are regular paragraphs
+  
+  
       return (
         <p key={index} className="text-gray-700 leading-relaxed mt-2">
           {line.trim()}
         </p>
       );
     });
-
+  
     return lines;
   };
+  
 
   return (
     <div className="bg-[rgba(234,239,231,1)] min-h-screen">
