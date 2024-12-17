@@ -6,7 +6,7 @@ function Articles() {
 
   // Fetch articles from the backend
   useEffect(() => {
-    fetch("http://localhost:5000/api/articles") 
+    fetch("/api/articles") 
       .then((response) => response.json())
       .then((data) => setArticles(data))
       .catch((error) => console.error("Error fetching articles:", error));
@@ -26,7 +26,7 @@ function Articles() {
               className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 duration-300"
             >
               <img
-                src={`http://localhost:5000/${article.image_path}`}
+                src={`/uploads/${article.image_path}`}
                 alt={article.title}
                 className="w-full h-48 object-cover"
               />

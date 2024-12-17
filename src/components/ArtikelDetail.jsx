@@ -7,7 +7,7 @@ function ArtikelDetail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/articles/${id}`)
+    fetch(`/api/articles/${id}`)
       .then((response) => response.json())
       .then((data) => setArticle(data))
       .catch((error) => console.error("Error fetching article:", error));

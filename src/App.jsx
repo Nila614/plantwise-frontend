@@ -16,9 +16,9 @@ import ArtikelDetail from './components/ArtikelDetail';
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration (in ms)
-      easing: 'ease-in-out', // Smooth animation easing
-      once: true, // Ensure animations run only once when scrolled into view
+      duration: 1000,
+      easing: 'ease-in-out', 
+      once: true, 
     });
   }, []);
 
