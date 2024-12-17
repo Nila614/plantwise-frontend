@@ -85,7 +85,7 @@ function ArtikelDetail() {
         </div>
         <div className="flex justify-center mb-6">
           <img
-            src={`http://localhost:5000/${article.image_path}`}
+            src={`/uploads/${article.image_path}`}
             alt={article.title}
             className="w-full md:w-1/2 rounded-lg shadow-md"
           />
