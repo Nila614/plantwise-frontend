@@ -6,7 +6,7 @@ function Articles() {
 
   // Fetch articles from the backend
   useEffect(() => {
-    fetch("/api/articles") 
+    fetch(import.meta.env.VITE_API_URL + 'api/articles')
       .then((response) => response.json())
       .then((data) => setArticles(data))
       .catch((error) => console.error("Error fetching articles:", error));
@@ -26,7 +26,7 @@ function Articles() {
               className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 duration-300"
             >
               <img
-                src={`/uploads/${article.image_path}`}
+                src={import.meta.env.VITE_API_URL + article.image_path}
                 alt={article.title}
                 className="w-full h-48 object-cover"
               />
@@ -38,7 +38,7 @@ function Articles() {
                   {article.description}
                 </p>
                 <Link
-                  to={`/Artikel/${article.id}`} 
+                  to={import.meta.env.VITE_API_URL + 'article.id'}
                   className="text-green-600 hover:underline text-sm mt-4 block"
                 >
                   Baca Selengkapnya

@@ -7,7 +7,7 @@ function ArtikelDetail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`/api/articles/${id}`)
+    fetch(`http://localhost:5000/api/articles/${id}`)
       .then((response) => response.json())
       .then((data) => setArticle(data))
       .catch((error) => console.error("Error fetching article:", error));
@@ -47,7 +47,7 @@ function ArtikelDetail() {
         );
       }
   
-  
+      
       return (
         <p key={index} className="text-gray-700 leading-relaxed mt-2">
           {line.trim()}
@@ -85,7 +85,7 @@ function ArtikelDetail() {
         </div>
         <div className="flex justify-center mb-6">
           <img
-            src={`/uploads/${article.image_path}`}
+            src={`http://localhost:5000/${article.image_path}`}
             alt={article.title}
             className="w-full md:w-1/2 rounded-lg shadow-md"
           />
