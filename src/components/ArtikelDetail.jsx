@@ -7,7 +7,7 @@ function ArtikelDetail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/articles/${id}`)
+    fetch(import.meta.env.VITE_API_URL + 'api/articles' + id)
       .then((response) => response.json())
       .then((data) => setArticle(data))
       .catch((error) => console.error("Error fetching article:", error));
@@ -85,7 +85,7 @@ function ArtikelDetail() {
         </div>
         <div className="flex justify-center mb-6">
           <img
-            src={`http://localhost:5000/${article.image_path}`}
+            src={import.meta.env.VITE_API_URL + article.image_path}
             alt={article.title}
             className="w-full md:w-1/2 rounded-lg shadow-md"
           />

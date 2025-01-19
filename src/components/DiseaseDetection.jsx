@@ -27,7 +27,7 @@ const DeteksiPenyakitTanaman = () => {
     formData.append("file", gambar);
 
     try {
-      const response = await fetch('/api/deteksi-penyakit', {
+      const response = await fetch(import.meta.env.VITE_API_URL + 'api/deteksi-penyakit', {
         method: "POST",
         body: formData,
       });

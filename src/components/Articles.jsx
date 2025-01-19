@@ -38,7 +38,7 @@ function Articles() {
                   {article.description}
                 </p>
                 <Link
-                  to={import.meta.env.VITE_API_URL + 'article.id'}
+                  to={import.meta.env.VITE_API_URL + article.id}
                   className="text-green-600 hover:underline text-sm mt-4 block"
                 >
                   Baca Selengkapnya
